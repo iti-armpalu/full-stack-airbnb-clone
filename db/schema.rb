@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_072737) do
     t.string "description"
     t.string "city"
     t.string "country"
-    t.string "type"
+    t.string "property_type"
     t.integer "price_per_night"
     t.integer "max_guests"
     t.integer "bedrooms"

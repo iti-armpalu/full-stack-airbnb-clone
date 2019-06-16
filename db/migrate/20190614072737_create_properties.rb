@@ -5,7 +5,7 @@ class CreateProperties < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :city
       t.string :country
-      t.string :type
+      t.string :property_type
       t.integer :price_per_night
       t.integer :max_guests
       t.integer :bedrooms
