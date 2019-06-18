@@ -1,6 +1,7 @@
 json.property do
   json.id @property.id
   json.title @property.title
+  json.description @property.description
   json.city @property.city
   json.country @property.country
   json.property_type @property.property_type
