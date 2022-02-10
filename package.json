@@ -1,13 +1,19 @@
 {
   "name": "airbnb_clone",
   "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": "~12.22"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
-    "@rails/webpacker": "^5.4.0",
+    "@rails/webpacker": "^4.0.7",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.3.1",
+    "dotenv": "^8.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-dates": "^20.2.4",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
