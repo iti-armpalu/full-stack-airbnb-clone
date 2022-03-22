@@ -1,0 +1,32 @@
+.container {
+  min-height: calc(100vh - 112px);
+}
+
+.property-image {
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  
+  @media (min-width: 768px) {
+    height: 200px;
+  }
+}
+
+.booking-border {
+  border: 1px solid #cdcdcd;
+}
+
+.booking-box {
+  border-bottom: 1px solid #cdcdcd;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.email-itinerary-btn {
+  background-color: #ff5a60 !important;
+  border-color: #ff5a60 !important;
+}
+
+
+
+
