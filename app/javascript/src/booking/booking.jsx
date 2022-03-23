@@ -66,7 +66,7 @@ class Booking extends React.Component {
         <div className="row">
           <div className="col-6 my-4">
             <div className="p-4">
-              <h2>You-re all set! Now, start preparing for your trip.</h2>
+              <h2>It's official! Now, start preparing for your trip.</h2>
               <p>You have a confirmed reservation with {property.user.username}. We've emailed your itinerary to {user.email}.</p>
               <div className="my-5">
                 <h6>Email your itinerary to anyone</h6>
