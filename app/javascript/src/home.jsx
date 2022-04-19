@@ -70,9 +70,9 @@ class Home extends React.Component {
           {(loading || next_page === null) ||
             <div className="text-center">
               <button
-                className="btn btn-light mb-4"
+                className="btn btn-outline-danger px-3 mb-5"
                 onClick={this.loadMore}
-              >load more</button>
+              >Load more</button>
             </div>
           }
         </div>
