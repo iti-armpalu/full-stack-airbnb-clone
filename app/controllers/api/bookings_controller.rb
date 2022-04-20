@@ -28,6 +28,15 @@ module Api
       render 'api/bookings/show'
     end
 
+    def index_by_user
+      user = User.find_by(username: params[:username])
+
+      if user
+        @bookings = user.bookings
+        render 'api/bookings/index'
+      end
+    end
+
     private
 
     def booking_params

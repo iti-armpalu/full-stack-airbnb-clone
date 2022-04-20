@@ -1,6 +1,6 @@
 // layout.js
 import React from 'react';
-import { handleErrors } from '@utils/fetchHelper';
+import { safeCredentials, handleErrors } from '@utils/fetchHelper';
 
 // Importing FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +16,7 @@ class Layout extends React.Component  {
     this.state = {
       authenticated: false,
       username: '',
-      showHostingMenu: true,
+      showHostingMenu: false,
     }
   }
 
@@ -37,13 +37,38 @@ class Layout extends React.Component  {
     if (!this.state.showHostingMenu) {
       inputEl.classList.add('dropdown')
     } else {
-      // inputEl.classList.remove('dropdown')
+      inputEl.classList.remove('dropdown')
     }
     this.setState({ showHostingMenu: !this.state.showHostingMenu })
   }
 
+  logout = (e) => {
+    e.preventDefault();
+
+    fetch('/api/sessions', safeCredentials({
+      method: 'DELETE',
+    }))
+      .then(handleErrors)
+      .then(data => {
+        // console.log('data', data)
+        if (data.success) {
+          this.setState({
+            authenticated: false,
+          })
+          const params = new URLSearchParams(window.location.search);
+          const redirect_url = params.get('redirect_url') || '/';
+          window.location = redirect_url;
+        }
+      })
+      .catch(error => {
+        this.setState({
+          error: 'Could not sign out.',
+        })
+      })
+  }
+
   render () {
-    const { authenticated, username } = this.state;
+    const { authenticated, username, showHostingMenu } = this.state;
 
     return (
       <React.Fragment>
@@ -61,34 +86,42 @@ class Layout extends React.Component  {
                 {/* <img src="./images/airbnb-logo.png" width="35" className="d-inline-block align-center" alt=""> */}
                 <b>airbnb</b>
               </a><ul className="navbar-nav">
-                <li className="nav-item mx-2"><a className="nav-link text-dark" href="/login">My trips</a></li>
+                <li className="nav-item mx-2"><a className="nav-link text-dark" href="/bookings">My bookings</a></li>
                 <li className="nav-item mx-2 btn-hosting-menu" onFocus={this.showHostingMenuFunc} onBlur={this.showHostingMenuFunc}><a className="nav-link text-dark" href="#">Hosting
                 <span className="ml-2"> <FontAwesomeIcon icon={faChevronDown} /></span></a></li>
 
-                {(this.state.showHostingMenu)
-                  ? (<div class="hosting-menu">
-                  <ul class="list-unstyled">
-                    <li><a href="#">Properties</a></li>
-                    <li><a href="#">Reservations</a></li>
-                    <li><a href="#">Add a new property</a></li>
-                    <div className="divider"></div>
-                    <li><a href="#">Guidebooks</a></li>
-                    <li><a href="#">Transaction history</a></li>
-                    <li><a href="#">Explore hosting resources</a></li>
-                    <li><a href="#">Visit our community forum</a></li>
-                    
-                  </ul>
-                </div>)
+                {(showHostingMenu)
+                  ? (<div className="hosting-menu">
+                      <ul className="list-unstyled">
+                        <li><a href="/">Properties</a></li>
+                        <li><a href="#">Reservations</a></li>
+                        <li><a href="/addProperty">Add a new property</a></li>
+                        <div className="divider"></div>
+                        <li><a href="#">Guidebooks</a></li>
+                        <li><a href="#">Transaction history</a></li>
+                        <li><a href="#">Explore hosting resources</a></li>
+                        <li><a href="#">Visit our community forum</a></li>
+                        
+                      </ul>
+                    </div>)
+
                   : (<div></div>)
         }
 
-              </ul><div>
+              </ul>
+          
+                  <button type="submit" className="btn btn-outline-danger btn-logout" onClick={this.logout}>Log out @{username}</button>
+   
+
+
+              {/* <div>
                 <span className="nav-user p-2">Hello, {username}</span>
                 <span className="fa-layers fa-fw fa-2x">
                   <FontAwesomeIcon icon={faCircle} className="circle-grey" />
                   <FontAwesomeIcon icon={faUser} transform="shrink-4" />
                 </span>
-              </div></>
+              </div> */}
+              </>
             
             
               

@@ -1,0 +1,10 @@
+.bookings-wrap {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+
+.property-image {
+  padding-top: calc(2 / 3 * 100%); /* aspect ratio 1:1 */
+  background-size: cover;
+  background-position: center;
+}
