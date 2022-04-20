@@ -90,7 +90,7 @@ class Layout extends React.Component  {
                         <ul className="list-unstyled">
                           <li><a href="/listings">Properties</a></li>
                           <li><a href="#">Reservations</a></li>
-                          <li><a href="/addProperty">Add a new property</a></li>
+                          <li><a href="/add-property">Add a new property</a></li>
                           <div className="divider"></div>
                           <li><a href="#">Guidebooks</a></li>
                           <li><a href="#">Transaction history</a></li>

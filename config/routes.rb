@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/login'                      => 'static_pages#login'
   get '/bookings'                   => 'static_pages#bookings'
   get '/listings'                   => 'static_pages#listings'
+  get '/add-property'               => 'static_pages#add_property'
   get '/booking/:id/success'        => 'static_pages#booking'
 
   namespace :api do
