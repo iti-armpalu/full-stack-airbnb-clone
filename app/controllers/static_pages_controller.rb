@@ -29,5 +29,8 @@ class StaticPagesController < ApplicationController
     render 'add_property'
   end
 
+  def edit_property
+    render 'edit_property'
+  end
 
 end
