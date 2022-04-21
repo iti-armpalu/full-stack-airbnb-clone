@@ -4,7 +4,7 @@ import { safeCredentials, handleErrors } from '@utils/fetchHelper';
 
 // Importing FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faInstagram, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faAirbnb, faTwitter, faInstagram, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 
@@ -78,8 +78,8 @@ class Layout extends React.Component  {
             {(authenticated)
               ? <>
                 <a className="navbar-brand text-danger" href="/">
-                  {/* <img src="./images/airbnb-logo.png" width="35" className="d-inline-block align-center" alt=""> */}
-                  <b>airbnb</b>
+                  <FontAwesomeIcon icon={faAirbnb} size="lg"/>
+                  <b className="pl-2" >airbnb</b>
                 </a>
                 <div>
                   <a className="btn btn-my-bookings p-2 mx-2" role="button" href="/bookings">My bookings</a>
@@ -127,7 +127,7 @@ class Layout extends React.Component  {
       
         {/* Footer */}
         <footer className="container-fluid">
-        <div className="row no-gutters pt-5 pt-xl-5">
+        <div className="row no-gutters mt-5 pt-5 pt-xl-5">
           <div className="col-12 col-xl-3 footerColumn_wrap">
             <h5 className="footerColumn_title my-0"><b>Support</b></h5>
             <ul className="footerColumn list-unstyled d-md-flex flex-wrap d-xl-block">
