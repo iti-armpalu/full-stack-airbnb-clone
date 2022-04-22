@@ -1,0 +1,15 @@
+.form-property h6 {
+  color: #767676;
+  margin-bottom: 0;
+}
+
+.form-property input:focus,
+.form-property textarea:focus {
+  box-shadow: none!important;
+  border-color: #FF5A5F!important;
+}
+
+.btn-edit-property {
+  color: #fff!important;
+  background-color: #FF5A5F!important;
+}

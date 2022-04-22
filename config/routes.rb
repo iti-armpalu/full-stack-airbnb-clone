@@ -6,14 +6,15 @@ Rails.application.routes.draw do
   get '/bookings'                   => 'static_pages#bookings'
   get '/listings'                   => 'static_pages#listings'
   get '/add-property'               => 'static_pages#add_property'
-  get '/property/:id/edit-property'               => 'static_pages#edit_property'
+  get '/property/:id/edit-property' => 'static_pages#edit_property'
+  get '/property/:id/reservations'  => 'static_pages#reservations'
   get '/booking/:id/success'        => 'static_pages#booking'
 
   namespace :api do
     # Add routes below this line
     # resources :users, only: [:create]
     # resources :sessions, only: [:create, :destroy]
-    resources :properties, only: [:index, :show]
+    # resources :properties, only: [:index, :show]
     resources :bookings, only: [:create, :show]
     resources :charges, only: [:create]
 
@@ -22,7 +23,10 @@ Rails.application.routes.draw do
 
     # PROPERTIES
     post '/properties'                  => 'properties#create'
+    get '/properties/'                => 'properties#index'
+    get '/properties/:id'             => 'properties#show'
     get '/users/:username/properties'   => 'properties#index_by_user'
+    patch '/properties/:id'           => 'properties#update'
     delete '/properties/:id'           => 'properties#destroy'
 
     # SESSIONS

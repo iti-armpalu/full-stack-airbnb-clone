@@ -100,8 +100,9 @@ class Listings extends React.Component {
                       </div>
 
                       <div>
-                        <a className="btn btn-danger btn-sm btn-edit mr-2 mt-2" role="button" href={`/property/${property.id}/edit-property`}>Edit property</a>
+                        <a className="btn btn-danger btn-sm btn-edit mr-2 mt-2" role="button" href={`property/${property.id}/edit-property`}>Edit property</a>
                         <button type="submit" className="btn btn-danger btn-sm btn-delete mr-2 mt-2" onClick={this.deleteProperty}>Delete property</button>
+                        <a className="btn btn-danger btn-sm btn-edit mr-2 mt-2" role="button" href={`property/${property.id}/reservations`}>View property reservations</a>
                       </div>
                     </div>
                     
