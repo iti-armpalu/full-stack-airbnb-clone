@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/listings'                   => 'static_pages#listings'
   get '/add-property'               => 'static_pages#add_property'
   get '/property/:id/edit-property' => 'static_pages#edit_property'
-  get '/property/:id/reservations'  => 'static_pages#reservations'
+  get '/property/:id/reservations'  => 'static_pages#property_reservations'
+  get '/reservations'                => 'static_pages#reservations'
   get '/booking/:id/success'        => 'static_pages#booking'
 
   namespace :api do
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
     delete '/sessions'             => 'sessions#destroy'
 
     # BOOKINGS
-    get '/properties/:id/bookings'  => 'bookings#get_property_bookings'
+    get '/properties/:id/bookings'   => 'bookings#get_property_bookings'
     get '/users/:username/bookings'  => 'bookings#index_by_user'
 
     # stripe webhook

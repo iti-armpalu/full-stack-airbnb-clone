@@ -1,2 +1,2 @@
-// listings.js
+// reservations.js
 import '@src/reservations';

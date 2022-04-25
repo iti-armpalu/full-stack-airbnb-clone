@@ -12,5 +12,6 @@ json.bookings do
 
     json.username         booking.property.user.username
 
+
   end
 end

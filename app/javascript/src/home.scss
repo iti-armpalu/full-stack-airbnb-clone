@@ -24,6 +24,8 @@ body {
   height: 80px;
   border-bottom: 1px solid #ddd;
   z-index: 1;
+  padding-left: 64px;
+  padding-right: 64px;
 }
 
 .navbar-brand {
@@ -136,10 +138,6 @@ body {
   margin: 8px 0;
 }
 
-.btn-logout {
-  font-size: 12px !important;
-}
-
 .btn-my-bookings {
   display: inline-block;
   line-height: 1.5;
@@ -147,7 +145,7 @@ body {
 
 .btn-my-bookings:hover, 
 .btn-hosting-menu:hover {
-  color: #FF5A5F!important;
+  color: #DC3545!important;
 }
 
 .btn-my-bookings:focus,
@@ -162,7 +160,7 @@ body {
 
 /* Container */
 
-.container, .container-fluid {
+.container {
   max-width: 1760px;
   width: 100%;
   margin-right: auto;
@@ -171,19 +169,19 @@ body {
   padding-right: 80px;
 }
 
-// @media (max-width: 1200px) {
-//   .container-fluid, .container {
-//     padding-right: 40px;
-//     padding-left: 40px;
-//   }
-// }
+@media (max-width: 1200px) {
+  .container {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
 
-// @media (max-width: 768px) {
-//   .container-fluid, .container {
-//     padding-right: 24px;
-//     padding-left: 24px;
-//   }
-// }
+@media (max-width: 768px) {
+  .container {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
 
 /* ----------------------- */
 
