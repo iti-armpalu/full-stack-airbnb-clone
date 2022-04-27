@@ -1,7 +1,7 @@
 // bookings.jsx
 import React from 'react';
 import Layout from '@src/layout';
-import { handleErrors } from '@utils/fetchHelper';
+import { safeCredentials, handleErrors } from '@utils/fetchHelper';
 import './bookings.scss';
 
 class Bookings extends React.Component {
@@ -27,6 +27,33 @@ class Bookings extends React.Component {
         this.setState({
           userBookings: data.bookings,
         })
+      })
+  }
+
+  initiateStripeCheckout = (e) => {
+    e.preventDefault();
+
+    console.log("Hello")
+
+    return fetch(`/api/charges?booking_id=24&cancel_url=${window.location.pathname}`, safeCredentials({
+      method: 'POST',
+    }))
+      .then(handleErrors)
+      .then(response => {
+        const stripe = Stripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
+        stripe.redirectToCheckout({
+          // Make the id field from the Checkout Session creation API response
+          // available to this file, so you can provide it as parameter here
+          // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+          sessionId: response.charge.checkout_session_id,
+        }).then((result) => {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, display the localized error message to your customer
+          // using `result.error.message`.
+        });
+      })
+      .catch(error => {
+        console.log(error);
       })
   }
 
@@ -67,7 +94,7 @@ class Bookings extends React.Component {
                         <p className="mb-1">Payment status</p>
                         <p className="mb-1 text-danger">Pending</p>
                       </div>
-                        <a className="btn btn-danger mt-3" href="#" role="button">Proceed to checkout</a></>
+                        <button type="submit" className="btn btn-danger mt-3" onClick={this.initiateStripeCheckout}>Proceed to checkout</button></>
 
                       : <div className="d-flex justify-content-between">
                           <p className="mb-1">Payment status</p>

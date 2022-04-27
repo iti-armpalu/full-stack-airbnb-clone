@@ -3,11 +3,6 @@ import React from 'react';
 import Layout from '@src/layout';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
 
-// Importing FontAwesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-
-
 import './reservations.scss';
 
 class Reservations extends React.Component {
@@ -42,8 +37,8 @@ class Reservations extends React.Component {
       <Layout>
         <div className="container py-4">
         <div className="d-flex justify-content-between align-items-center mb-4">
-              <h4 className="mb-0">Property reservations</h4>
-              <a className="btn btn-my-bookings p-2 mx-2" role="button" href="/add-property"><FontAwesomeIcon icon={ faCalendarDays } className="mr-2" />View all reservations</a>
+              <h4 className="mb-0">All reservations</h4>
+              
           </div>
 
           <div className="reservations-header-row p-4 mb-1">

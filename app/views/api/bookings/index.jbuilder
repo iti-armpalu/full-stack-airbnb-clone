@@ -11,7 +11,5 @@ json.bookings do
     json.price_per_night  booking.property.price_per_night
 
     json.username         booking.property.user.username
-
-
   end
 end
