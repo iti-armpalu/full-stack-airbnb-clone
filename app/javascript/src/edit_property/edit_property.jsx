@@ -9,6 +9,7 @@ class EditProperty extends React.Component {
     super(props)
     this.state = {
       property: {},
+      username: '',
     }
   }
 
@@ -77,13 +78,17 @@ class EditProperty extends React.Component {
       .then(handleErrors)
       .then(data => {
         console.log('data', data)
+        this.setState({
+          username: data.property.user.username,
+        })
+
         const params = new URLSearchParams(window.location.search)
-        const redirect_url = params.get('redirect_url') || '/listings'
+        const redirect_url = params.get('redirect_url') ||  `/${this.state.username}/listings`
         window.location = redirect_url
       })
       .catch(error => {
         this.setState({
-          error: 'Could not post a tweet.',
+          error: 'Could not post a property.',
         })
       })
   }

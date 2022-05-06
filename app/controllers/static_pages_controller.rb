@@ -18,10 +18,12 @@ class StaticPagesController < ApplicationController
   end
 
   def bookings
+    @data = { username: params[:username] }.to_json
     render 'bookings'
   end
 
   def listings
+    @data = { username: params[:username] }.to_json
     render 'listings'
   end
 
@@ -40,6 +42,7 @@ class StaticPagesController < ApplicationController
   end
 
   def reservations
+    @data = { username: params[:username] }.to_json
     render 'reservations'
   end
 

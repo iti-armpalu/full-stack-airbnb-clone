@@ -73,7 +73,7 @@ class Layout extends React.Component  {
                   <b className="pl-2" >airbnb</b>
                 </a>
                 <div>
-                  <a className="btn btn-my-bookings p-2 mx-2" role="button" href="/bookings">My bookings</a>
+                  <a className="btn btn-my-bookings p-2 mx-2" role="button" href={`/${username}/bookings`}>My bookings</a>
                   <button type="submit" className="btn btn-hosting-menu p-2 mx-2" onClick={this.showHostingMenuFunc}>
                     Hosting
                     <span className="ml-2">
@@ -83,9 +83,9 @@ class Layout extends React.Component  {
                     {(showHostingMenu)
                       ? (<div className="hosting-menu">
                           <ul className="list-unstyled">
-                            <li><a href="/listings">Properties</a></li>
-                            <li><a href="/reservations">Reservations</a></li>
-                            <li><a href="/add-property">Add a new property</a></li>
+                            <li><a href={`/${username}/listings`}>Properties</a></li>
+                            <li><a href={`/${username}/reservations`}>Reservations</a></li>
+                            <li><a href={`/${username}/add-property`}>Add a new property</a></li>
                             <div className="divider"></div>
                             <li><a href="#">Guidebooks</a></li>
                             <li><a href="#">Transaction history</a></li>

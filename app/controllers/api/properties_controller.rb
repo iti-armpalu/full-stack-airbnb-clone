@@ -66,14 +66,14 @@ module Api
 
       if user
         @properties = user.properties
-        render 'api/properties/index'
+        render 'api/properties/details'
       end
     end
 
     private
 
       def property_params
-        params.require(:property).permit(:title, :description, :city, :country, :property_type, :price_per_night, :max_guests, :bedrooms, :beds, :baths, :user)
+        params.require(:property).permit(:title, :description, :city, :country, :property_type, :price_per_night, :max_guests, :bedrooms, :beds, :baths, :user, :image)
       end
 
   end

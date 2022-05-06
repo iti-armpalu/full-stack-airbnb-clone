@@ -80,7 +80,7 @@ class Booking extends React.Component {
           <div className="col-6 my-4 p-4">
             <div className="booking-border p-4">
               <div>
-                <div className="property-image mb-3" style={{ backgroundImage: `url(${property.image_url})` }} />
+                <div className="property-image mb-3" style={{ backgroundImage: `url(${property.image})` }} />
                 <div className="booking-box">
                   <h6><b>{property.title}</b></h6>
                   <p>{property.property_type} in {property.city}</p>

@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   get '/property/:id'               => 'static_pages#property'
   get '/login'                      => 'static_pages#login'
-  get '/bookings'                   => 'static_pages#bookings'
-  get '/listings'                   => 'static_pages#listings'
-  get '/add-property'               => 'static_pages#add_property'
+  get '/:username/bookings'                   => 'static_pages#bookings'
+  get '/:username/listings'                   => 'static_pages#listings'
+  get '/:username/add-property'               => 'static_pages#add_property'
   get '/property/:id/edit-property' => 'static_pages#edit_property'
   get '/property/:id/reservations'  => 'static_pages#property_reservations'
-  get '/reservations'                => 'static_pages#reservations'
+  get '/:username/reservations'                => 'static_pages#reservations'
   get '/booking/:id/success'        => 'static_pages#booking'
 
   namespace :api do
@@ -37,8 +37,9 @@ Rails.application.routes.draw do
     delete '/sessions'             => 'sessions#destroy'
 
     # BOOKINGS
-    get '/properties/:id/bookings'   => 'bookings#get_property_bookings'
-    get '/users/:username/bookings'  => 'bookings#index_by_user'
+    get '/properties/:id/bookings'                => 'bookings#get_property_bookings'
+    get '/users/:username/properties/bookings'    => 'bookings#get_properties_bookings'
+    get '/users/:username/bookings'               => 'bookings#index_by_user'
 
     # stripe webhook
     post '/charges/mark_complete'   => 'charges#mark_complete'
