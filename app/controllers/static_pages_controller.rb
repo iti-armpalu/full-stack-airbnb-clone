@@ -12,9 +12,9 @@ class StaticPagesController < ApplicationController
     render 'login'
   end
 
-  def booking
+  def booking_success
     @data = { booking_id: params[:id] }.to_json
-    render 'booking'
+    render 'booking_success'
   end
 
   def bookings

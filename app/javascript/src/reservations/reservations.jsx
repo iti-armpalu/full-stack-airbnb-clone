@@ -1,8 +1,9 @@
-// bookings.jsx
+// reservations.jsx
 import React from 'react';
 import Layout from '@src/layout';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
 
+// Importing stylesheet
 import './reservations.scss';
 
 class Reservations extends React.Component {
@@ -31,16 +32,14 @@ class Reservations extends React.Component {
       })
   }
   
-
   render () {
     const { userPropertyBookings } = this.state
 
     return (
       <Layout>
         <div className="container py-4">
-        <div className="d-flex justify-content-between align-items-center mb-4">
-              <h4 className="mb-0">All reservations</h4>
-              
+          <div className="d-flex justify-content-between align-items-center mb-4">
+              <h4 className="mb-0">All reservations</h4>  
           </div>
 
           {(userPropertyBookings.length != 0)
@@ -132,12 +131,10 @@ class Reservations extends React.Component {
           <div className="border border-secondary rounded text-center">
             <p className="py-4 mb-0">Your properties don't have any active reservations at the moment.</p>
           </div>
-
           }
         </div>
       </Layout>
     );
-
   }
 }
 

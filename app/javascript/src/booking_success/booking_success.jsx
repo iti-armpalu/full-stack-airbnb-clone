@@ -1,25 +1,25 @@
-// booking.jsx
+// booking_success.jsx
 import React from 'react';
 import Layout from '@src/layout';
 import { handleErrors } from '@utils/fetchHelper';
-import './booking.scss';
 
-class Booking extends React.Component {
+// Importing stylesheet
+import './booking_success.scss';
+
+class BookingSuccess extends React.Component {
   state = {
     booking: {},
     nights_booked: null,
     subtotal: null,
-    service_fee: 5,
     total: null,
     loading: true,
   }
 
   componentDidMount() {
     const booking_id = this.props.booking_id;
-    console.log(booking_id);
+    // console.log(booking_id);
 
     fetch(`/api/bookings/${booking_id}`)
-
       .then(handleErrors)
       .then(data => {
         console.log('data', data)
@@ -31,22 +31,19 @@ class Booking extends React.Component {
 
         const getNightVal = this.state.nights_booked
         const subtotal = data.booking.property.price_per_night * getNightVal
-        const serviceFee = this.state.service_fee
 
         this.setState({
           booking: data.booking,
           nights_booked: getNightVal,
           subtotal: subtotal,
-          total: serviceFee + subtotal,
+          total: subtotal,
           loading: false
-        })
-
-        
+        })        
       })
   }
 
   render () {
-    const { booking, nights_booked, subtotal, service_fee, total, loading } = this.state;
+    const { booking, nights_booked, subtotal, total, loading } = this.state;
 
     if (loading) {
       return <p>loading...</p>;
@@ -94,10 +91,6 @@ class Booking extends React.Component {
                     <p>${property.price_per_night}.00 x {nights_booked} nights</p>
                     <p><b>${subtotal}.00</b></p>
                   </div>
-                  <div className="d-flex justify-content-between">
-                    <p>Service fee</p>
-                    <p><b>${service_fee}.00</b></p>
-                  </div>
                 </div>
                 <div className="booking-box d-flex justify-content-between">
                   <p><b>Total (USD)</b></p>
@@ -114,8 +107,7 @@ class Booking extends React.Component {
       </div>
     </Layout>
     );
-
   }
 }
 
-export default Booking
+export default BookingSuccess

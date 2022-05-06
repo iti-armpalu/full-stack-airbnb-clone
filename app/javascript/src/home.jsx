@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import { handleErrors } from '@utils/fetchHelper';
 
+// Importing stylesheet
 import './home.scss';
 
 class Home extends React.Component {

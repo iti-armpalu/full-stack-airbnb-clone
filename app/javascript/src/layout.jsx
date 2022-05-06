@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAirbnb, faTwitter, faInstagram, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
+// Importing stylesheet
 import './home.scss';
 
 class Layout extends React.Component  {
@@ -65,8 +66,8 @@ class Layout extends React.Component  {
 
     return (
       <React.Fragment>
-
           {(authenticated)
+
             ? <nav className="navbar navbar-expand d-flex justify-content-between" id="navbar">
                 <a className="navbar-brand text-danger" href="/">
                   <FontAwesomeIcon icon={faAirbnb} size="lg"/>
@@ -83,7 +84,7 @@ class Layout extends React.Component  {
                     {(showHostingMenu)
                       ? (<div className="hosting-menu">
                           <ul className="list-unstyled">
-                            <li><a href={`/${username}/listings`}>Properties</a></li>
+                            <li><a href={`/${username}/listings`}>Listings</a></li>
                             <li><a href={`/${username}/reservations`}>Reservations</a></li>
                             <li><a href={`/${username}/add-property`}>Add a new property</a></li>
                             <div className="divider"></div>
@@ -96,13 +97,11 @@ class Layout extends React.Component  {
 
                       : (<div></div>)
                     }
-
                   </button>
                 </div>
-            
                 <button type="submit" className="btn btn-outline-danger btn-logout" onClick={this.logout}>Log out @{username}</button>
               </nav>
-            
+
             : <nav className="navbar navbar-expand d-flex justify-content-between" id="navbar">
                 <a className="navbar-brand text-danger" href="/">
                   <FontAwesomeIcon icon={faAirbnb} size="lg"/>
@@ -111,12 +110,10 @@ class Layout extends React.Component  {
                 <a className="btn btn-outline-danger btn-login" href="/login">Log in</a>
               </nav>
           }
-
-
         <div className="content">
           {this.props.children}
         </div>
-      
+        
         {/* Footer */}
         <footer>
           <div className="container">

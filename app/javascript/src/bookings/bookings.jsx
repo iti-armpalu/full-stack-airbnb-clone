@@ -2,6 +2,8 @@
 import React from 'react';
 import Layout from '@src/layout';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
+
+// Importing stylesheet
 import './bookings.scss';
 
 class Bookings extends React.Component {
@@ -62,16 +64,11 @@ class Bookings extends React.Component {
   render () {
     const { userBookings } = this.state;
 
-
-
       return (
         <Layout>
-          
           <div className="container py-4">
             <h4 className="mb-4">My bookings</h4>
-
             {(userBookings.length != 0)
-
             ?
             <div>
               {userBookings.map(booking => {
@@ -125,23 +122,16 @@ class Bookings extends React.Component {
                 )
               })}
             </div>
+
             :
             <div className="py-4 border border-secondary rounded text-center">
               <p className="mb-1">Your don't have any active bookings at the moment.</p>
               <a className="text-danger" href="/">Discover properties</a>
             </div>
-            
             }
-
-
-            
           </div>
         </Layout>
       );
-
-
-
-
   }
 }
 

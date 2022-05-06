@@ -36,7 +36,6 @@ class PropertyReservations extends React.Component {
   render () {
     const {propertyBookings} = this.state
 
-
     return (
       <Layout>
         <div className="container py-4">
@@ -78,7 +77,7 @@ class PropertyReservations extends React.Component {
 
               </div>
             </div>
-              
+            
             {propertyBookings.map(booking => {
               return (
                 <div key={booking.id} id={booking.id} className="reservations-wrap p-4 mb-3">
@@ -129,11 +128,7 @@ class PropertyReservations extends React.Component {
           <div className="border border-secondary rounded text-center">
             <p className="py-4 mb-0">Your property doesn't have any active reservations at the moment.</p>
           </div>
-          
           }
-          
-          
-
         </div>
       </Layout>
     );

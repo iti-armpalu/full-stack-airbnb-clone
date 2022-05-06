@@ -6,6 +6,7 @@ import LoginWidget from './loginWidget';
 import SignupWidget from './signupWidget';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
 
+// Importing stylesheet
 import './login.scss';
 
 class Login extends React.Component {

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/property/:id/edit-property' => 'static_pages#edit_property'
   get '/property/:id/reservations'  => 'static_pages#property_reservations'
   get '/:username/reservations'                => 'static_pages#reservations'
-  get '/booking/:id/success'        => 'static_pages#booking'
+  get '/booking/:id/success'        => 'static_pages#booking_success'
 
   namespace :api do
     # Add routes below this line

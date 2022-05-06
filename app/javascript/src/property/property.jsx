@@ -3,6 +3,8 @@ import React from 'react';
 import Layout from '@src/layout';
 import BookingWidget from './bookingWidget';
 import { handleErrors } from '@utils/fetchHelper';
+
+// Importing stylesheet
 import './property.scss';
 
 class Property extends React.Component {
