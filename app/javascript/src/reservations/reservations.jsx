@@ -48,7 +48,6 @@ class Reservations extends React.Component {
           <div>
             <div className="reservations-header-row p-4 mb-1">
               <div className="row no-gutters d-flex justify-content-between align-items-center text-center">
-
                 <div className="col-2">
                 <p className="mb-2">Property image</p>
                 </div>
@@ -58,28 +57,21 @@ class Reservations extends React.Component {
                 <div className="col-1">
                   <p className="mb-2">Property id</p>
                 </div>
-
-
                 <div className="col-1">
                 <p className="mb-2">Start date</p>
                 </div>
-                
                 <div className="col-1">
                 <p className="mb-2">End date</p>
                 </div>
-
                 <div className="col-1">
                   <p className="mb-2">Booked by</p>
                 </div>
-
                 <div className="col-1">
                   <p className="mb-2">Payment status</p>
                 </div>
-
                 <div className="col-2">
                   <p className="mb-2"></p>
                 </div>
-
               </div>
             </div>
 

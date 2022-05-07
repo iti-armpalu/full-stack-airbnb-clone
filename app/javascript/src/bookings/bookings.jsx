@@ -85,13 +85,12 @@ class Bookings extends React.Component {
                           <p className="mb-1 text-secondary">Hosted by {booking.property.user.username}</p>
                           <p className="mb-1 text-secondary">{booking.start_date} - {booking.end_date}</p>
                         </div>
-                        
                       </div>
                       <div className="col-4">
                         <div className="row d-flex flex-column px-3">
                           <div className="d-flex justify-content-between">
                             <p className="mb-1"><b>Total (USD)</b></p>
-                            <p className="mb-1"><b>
+                            <p className="mb-1"><b>$ 
                             {this.totalPrice(booking.start_date, booking.end_date, booking.property.price_per_night)}
                             </b></p>
                           </div>
@@ -113,11 +112,8 @@ class Bookings extends React.Component {
                           }
 
                         </div>
-                      
                       </div>
-
                     </div>
-
                   </div>
                 )
               })}

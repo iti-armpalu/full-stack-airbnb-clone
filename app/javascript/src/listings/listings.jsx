@@ -38,7 +38,7 @@ class Listings extends React.Component {
 
   deleteProperty = (e) => {
     e.preventDefault();
-    let propertyEl = e.target.closest(".bookings-wrap")
+    let propertyEl = e.target.closest(".listings-wrap")
     let propertyId = propertyEl.getAttribute('id')
 
     fetch(`/api/properties/${propertyId}`, safeCredentials({
@@ -73,7 +73,7 @@ class Listings extends React.Component {
           <div>
             {userProperties.map(property => {
               return (
-                <div key={property.id} id={property.id} className="bookings-wrap p-4 mb-3">
+                <div key={property.id} id={property.id} className="listings-wrap p-4 mb-3">
                   <div className="row d-flex">
                     <div className="col-4">
                       <div className="property-image rounded" style={{ backgroundImage: `url(${property.image})` }} />
