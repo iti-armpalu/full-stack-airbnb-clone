@@ -16,7 +16,7 @@ gem 'uglifier', '~> 4.2.0'
 # Use kaminari for activerecord pagination
 gem 'kaminari'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.4'
 # Use CoffeeScript for .coffee assets and views
